@@ -1,0 +1,64 @@
+.selectInput{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    user-select: none;
+}
+
+.inputWithArrowDiv {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.inputWithArrowDiv input {
+    width: 100%;
+    padding-right: 30px;
+}
+
+.inputWithArrowDiv::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-size: cover;
+}
+
+.listaContainer{
+    position: relative;
+    width: 100%;
+}
+
+.listaContainer ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.listaContainer ul li{
+    width: 100%;
+    box-sizing: border-box;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+
+.emptyMessage{
+    padding-bottom: 4px;
+    overflow: hidden;
+}
