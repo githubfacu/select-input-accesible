@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Input = ({inputValue, inputRef, placeHolder, desplegarLista, setInputValue}) => {
+export const Input = ({inputValue, placeHolder, desplegarLista, setInputValue}) => {
 
 
   return (
@@ -9,7 +9,6 @@ export const Input = ({inputValue, inputRef, placeHolder, desplegarLista, setInp
             value={inputValue}
             placeholder={placeHolder}
             aria-label="Campo de búsqueda y selección"
-            ref={inputRef}
             onClick={desplegarLista}
             onKeyDown={(e) => {
                 if (e.key === 'Enter') {

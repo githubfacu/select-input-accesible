@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import SelectGestor from './componentes/select-input/select-gestor'
 import './App.css'
 
@@ -20,6 +20,7 @@ const lista2 = [
 function App() {
 
   const [ itemsCollected, setItemsCollected ] = useState([])
+  const itemsRef = useRef(null)
 
   const selectItem = (item) => {
     setItemsCollected([...itemsCollected, item])
@@ -38,13 +39,14 @@ function App() {
         Select Input Accesible
       </h1>
 
-      <section>
+      <section ref={itemsRef} tabIndex={0}>
         {
           itemsCollected && 
           itemsCollected.map((item, index) => (
             <span
               key={index}
               onClick={() => deleteItem(item)}
+              tabIndex={0}
             >-{item} </span>
           ))
         }
@@ -58,6 +60,7 @@ function App() {
           emptyMessage='No se encontraton resultados...' 
           placeHolder='Buscar y seleccionar'
           selectItem={selectItem}
+          itemsRef={itemsRef}
         />
 
       </div>

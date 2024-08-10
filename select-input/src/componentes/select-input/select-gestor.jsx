@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from './select'
 
-const SelectGestor = ({contentList, itemsCollected, emptyMessage, placeHolder, selectItem}) => {
+const SelectGestor = ({contentList, itemsCollected, emptyMessage, placeHolder, selectItem, itemsRef}) => {
 
 
   const contentListOptimized = Array.from(new Set(contentList)).sort((a, b) => {
@@ -45,6 +45,7 @@ const SelectGestor = ({contentList, itemsCollected, emptyMessage, placeHolder, s
         emptyMessage={emptyMessage}
         placeHolder={placeHolder}
         selectItem={selectItem}
+        itemsRef={itemsRef}
       />
   )
 }

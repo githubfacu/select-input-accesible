@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export const SelectList = ({inputValue, setInputValue, listaDisplay, setListaDisplay, contentList, inputRef, selectRef, selectItem, itemsCollected, emptyMessage}) => {
+export const SelectList = ({inputValue, setInputValue, listaDisplay, setListaDisplay, contentList, selectRef, itemsRef, selectItem, itemsCollected, emptyMessage}) => {
 
     const [itemsList, setItemsList] = useState(contentList)
 
@@ -16,25 +16,25 @@ export const SelectList = ({inputValue, setInputValue, listaDisplay, setListaDis
 
     const clickItem = (item) => {
 
-        inputRef.current && inputRef.current.focus();
-        
+
         if (itemsCollected.some((itemCollect) => itemCollect === item)) {
             return alert('El item ya fue seleccionado')
         }
 
-        /*avisar seleccion*/ 
+        alert(`El item ${item} ha sido seleccionado`)
 
         selectItem(item)
         setInputValue('')
         setListaDisplay('none')
+        itemsRef.current && itemsRef.current.focus();        
     }
 
   return (
     <ul style={{ display: `${listaDisplay}` }}
-        ref={selectRef} 
         role="listbox"
-        aria-label="Lista de elementos">
-
+        aria-label="Lista de elementos"
+        ref={selectRef}
+        >
         {
             (inputValue !== '' && itemsList.length === 0) &&
             <li className='emptyMessage' >{emptyMessage}</li>                    

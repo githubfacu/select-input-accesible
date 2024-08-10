@@ -3,7 +3,7 @@ import styles from './select.module.css'
 import { Input } from './elementos/input'
 import { SelectList } from './elementos/select-list'
 
-const Select = ({contentList, itemsCollected, emptyMessage, placeHolder, selectItem}) => {
+const Select = ({contentList, itemsCollected, emptyMessage, placeHolder, selectItem, itemsRef}) => {
 
     const [inputValue, setInputValue] = useState('')
     const [listaDisplay, setListaDisplay] = useState("none")
@@ -34,7 +34,6 @@ const Select = ({contentList, itemsCollected, emptyMessage, placeHolder, selectI
         <div className={styles.inputWithArrowDiv} >
             <Input 
                 inputValue={inputValue}
-                inputRef={inputRef}
                 placeHolder={placeHolder}
                 desplegarLista={desplegarLista}
                 setInputValue={setInputValue}
@@ -48,7 +47,7 @@ const Select = ({contentList, itemsCollected, emptyMessage, placeHolder, selectI
                 listaDisplay={listaDisplay}
                 setListaDisplay={setListaDisplay}
                 contentList={contentList}
-                inputRef={inputRef}
+                itemsRef={itemsRef}
                 selectRef={selectRef}
                 selectItem={selectItem}
                 itemsCollected={itemsCollected}
