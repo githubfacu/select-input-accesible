@@ -3,7 +3,7 @@ import styles from './select.module.css'
 import { Input } from './elementos/input'
 import { SelectList } from './elementos/select-list'
 
-const Select = ({itemsCollected, selectItem, contentList, emptyMessage, placeHolder}) => {
+const Select = ({contentList, itemsCollected, emptyMessage, placeHolder, selectItem}) => {
 
     const [inputValue, setInputValue] = useState('')
     const [listaDisplay, setListaDisplay] = useState("none")

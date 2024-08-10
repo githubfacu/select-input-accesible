@@ -22,6 +22,8 @@ export const SelectList = ({inputValue, setInputValue, listaDisplay, setListaDis
             return alert('El item ya fue seleccionado')
         }
 
+        /*avisar seleccion*/ 
+
         selectItem(item)
         setInputValue('')
         setListaDisplay('none')

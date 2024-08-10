@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Select from './select'
 
-const SelectGestor = ({getValues, contentList, emptyMessage, placeHolder}) => {
+const SelectGestor = ({contentList, itemsCollected, emptyMessage, placeHolder, selectItem}) => {
 
-  const [ itemsCollected, setItemsCollected ] = useState([])
 
   const contentListOptimized = Array.from(new Set(contentList)).sort((a, b) => {
     const getWordsAndNumbers = (str) => {
@@ -39,23 +38,13 @@ const SelectGestor = ({getValues, contentList, emptyMessage, placeHolder}) => {
   })
 
 
-  const selectItem = (item) => {
-    setItemsCollected([...itemsCollected, item])
-  }
-
-  
-  useEffect(() => {
-    getValues(itemsCollected)
-  }, [itemsCollected])
-
-
   return ( 
       <Select
-        itemsCollected={itemsCollected}
-        selectItem={selectItem}
         contentList={contentListOptimized}
+        itemsCollected={itemsCollected}
         emptyMessage={emptyMessage}
         placeHolder={placeHolder}
+        selectItem={selectItem}
       />
   )
 }
